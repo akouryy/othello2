@@ -15,7 +15,7 @@ int main(void)
 
 	scanf("%s", input);
 	sscanf(input , "name=%s" , beforename);
-	char *aftername = malloc(strlen(beforename) + 1);
+	char *aftername = (char *)malloc(strlen(beforename) + 1);
 
 	decode(aftername , beforename);
 	sprintf(fname , "%s.txt" , aftername);
