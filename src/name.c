@@ -24,16 +24,19 @@ int main(void)
 	fseek(file , 0 , SEEK_END);
 	x = ftell(file);
 
+	printf("Content-type: text/html; charset=UTF-8\n\n");
+	printf("<html><body>\n");
+
 	if (x != 0)
 	{
 		//HTML:名前を再入力させる
-		printf("Content-type: text/html; charset=UTF-8\n\n");
 	}
 	else
 	{
 		//HTML:ゲーム画面に移る
-		printf("Content-type: text/html; charset=UTF-8\n\n");
 	}
+
+	printf("</body></html>\n");
 
 	fclose(file);
 
