@@ -27,12 +27,12 @@ int main(void)
 	if (x != 0)
 	{
 		//HTML:名前を再入力させる
-		printf("Content-type: text/html\n\n");
+		printf("Content-type: text/html; charset=UTF-8\n\n");
 	}
 	else
 	{
 		//HTML:ゲーム画面に移る
-		printf("Content-type: text/html\n\n");
+		printf("Content-type: text/html; charset=UTF-8\n\n");
 	}
 
 	fclose(file);
