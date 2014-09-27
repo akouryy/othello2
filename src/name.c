@@ -9,25 +9,33 @@ void decode(char *aftername , const char *beforename);
 
 int main(void)
 {
+	long x;
 	char input[1000] , str[100] , fname[100] , beforename[100];
 	FILE *file;
 
 	scanf("%s", input);
 	sscanf(input , "name=%s" , beforename);
 	char *aftername = malloc(strlen(beforename) + 1);
+
 	decode(aftername , beforename);
 	sprintf(fname , "%s.txt" , aftername);
-	file = fopen(fname , "a+");
 
-	if (fgets(str , 90 , file) == NULL)
+	file = fopen(fname , "ab+");
+	fseek(file , 0 , SEEK_END);
+	x = ftell(file);
+
+	if (x != 0)
 	{
-		fclose(file);
 		//HTML:名前を再入力させる
+		printf("Content-type: text/html\n\n");
 	}
 	else
 	{
 		//HTML:ゲーム画面に移る
+		printf("Content-type: text/html\n\n");
 	}
+
+	fclose(file);
 
 	return 0;
 }
