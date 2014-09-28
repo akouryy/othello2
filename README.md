@@ -7,4 +7,4 @@ Web上で遊べるオセロ です。
 
 * AIも強化する予定です。
 
-協力者 : [hinamiyagk](http://goo.gl/tThmV1)
+協力者 : [hinamiyagk](http://goo.gl/tThmV1) , [seityoji](https://github.com/seityoji)
