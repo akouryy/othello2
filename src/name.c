@@ -24,7 +24,7 @@ int main(void)
 	fseek(file , 0 , SEEK_END);
 	x = ftell(file);
 
-	printf("Content-type: text/html; charset=UTF-8\n\n");
+	printf("Content-type: text/html;charset=UTF-8\n\n");
 	printf("<html><body>\n");
 
 	if (x != 0)
@@ -89,4 +89,6 @@ void decode(char *aftername , const char *beforename)
 	}
 
 	*aftername++ = '\0';
+
+	return ;
 }
