@@ -1,0 +1,33 @@
+<!--hoge1.html-->
+
+<!DOCTYPE HTML>
+
+<html lang="ja">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta http-equiv="content-script-type" content="text/javascript">
+		<meta http-equiv="content-style-type" content="text/css">
+		<link rel="stylesheet" type="text/css" href="../css/ファイル名.css">
+		<script src="../js/ファイル名.js"></script>
+	</head>
+
+	<body>
+		<div id="title">
+			<h1 align="center">
+				testpage
+			</h1>
+
+			<form name="config" id="form" align="center">
+				<input type="text" name="pname" size="50" value="名前を入力してください" onclick="text()"><br>
+				<input type="radio" name="level"><label>レベル1</label>
+				<input type="radio" name="level"><label>レベル2</label>
+				<input type="radio" name="level"><label>レベル3</label>
+				<input type="radio" name="level"><label>レベル4</label>
+				<input type="radio" name="level"><label>レベル5</label><br>
+				<input type="radio" name="order"><label>先手</label>
+				<input type="radio" name="order"><label>後手</label><br>
+				<input type="button" value="遊ぶ" onclick="start()">
+			</form>
+		</div>
+	</body>
+</html>
