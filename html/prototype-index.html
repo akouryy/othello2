@@ -10,22 +10,26 @@
 	</head>
 
 	<body>
-		<div id="title">
-			<h1 align="center">
+		<headder>
+			<h1 style="text-align: center">
 				testpage
 			</h1>
+		</headder>
 
-			<form name="config" id="form" align="center">
-				<input type="text" name="pname" size="50" value="名前を入力してください" onclick="text()"><br>
-				<input type="radio" name="level"><label>レベル1</label>
-				<input type="radio" name="level"><label>レベル2</label>
-				<input type="radio" name="level"><label>レベル3</label>
-				<input type="radio" name="level"><label>レベル4</label>
-				<input type="radio" name="level"><label>レベル5</label><br>
-				<input type="radio" name="order"><label>先手</label>
-				<input type="radio" name="order"><label>後手</label><br>
-				<input type="button" value="遊ぶ" onclick="start()">
-			</form>
-		</div>
+		<main>
+			<div id="title">
+				<form name="config" id="form" style="text-align: center">
+					<input type="text" name="pname" size="50" placeholder="名前を入力してください" onclick="text()"><br>
+					<input type="radio" name="level"><label>レベル1</label>
+					<input type="radio" name="level"><label>レベル2</label>
+					<input type="radio" name="level"><label>レベル3</label>
+					<input type="radio" name="level"><label>レベル4</label>
+					<input type="radio" name="level"><label>レベル5</label><br>
+					<input type="radio" name="order"><label>先手</label>
+					<input type="radio" name="order"><label>後手</label><br>
+					<input type="button" value="遊ぶ" onclick="start()">
+				</form>
+			</div>
+		</main>
 	</body>
 </html>
