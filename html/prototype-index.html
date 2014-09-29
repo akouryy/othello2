@@ -11,22 +11,27 @@
 
 	<body>
 		<headder>
-			<h1 style="text-align: center">
+			<h1>
 				testpage
 			</h1>
 		</headder>
 
 		<main>
 			<div id="title">
-				<form name="config" id="form" style="text-align: center">
-					<input type="text" name="pname" size="50" placeholder="名前を入力してください" onclick="text()"><br>
+				<form name="config" id="form">
+					<p><input type="text" name="pname" size="50" placeholder="名前を入力してください" onclick="text()"></p>
+					<p>
+					相手の強さを選んでください<br />
 					<label><input type="radio" name="level">レベル1</label>
 					<label><input type="radio" name="level">レベル2</label>
 					<label><input type="radio" name="level">レベル3</label>
 					<label><input type="radio" name="level">レベル4</label>
-					<label><input type="radio" name="level">レベル5</label><br>
+					<label><input type="radio" name="level">レベル5</label>
+					</p>
+					<p>先手か後手かを選んでください<br />
 					<label><input type="radio" name="order">先手</label>
-					<label><input type="radio" name="order">後手</label><br>
+					<label><input type="radio" name="order">後手</label>
+					</p>
 					<input type="button" value="遊ぶ" onclick="start()">
 				</form>
 			</div>
