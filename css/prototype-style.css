@@ -32,3 +32,10 @@ form{
 	margin:auto;
 	border:solid 1px black;
 }
+
+.center
+{
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+}
