@@ -2,10 +2,10 @@
 
 <html lang="ja">
 	<head>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8">
-		<meta http-equiv="content-script-type" content="text/javascript">
-		<meta http-equiv="content-style-type" content="text/css">
-		<link rel="stylesheet" type="text/css" href="../css/ファイル名.css">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta http-equiv="content-script-type" content="text/javascript" />
+		<meta http-equiv="content-style-type" content="text/css" />
+		<link rel="stylesheet" type="text/css" href="../css/ファイル名.css" />
 		<script src="../js/prototype-othello.js"></script>
 	</head>
 
@@ -19,20 +19,26 @@
 		<main>
 			<div id="title">
 				<form name="config" id="form">
-					<p><input type="text" name="pname" size="50" placeholder="名前を入力してください"></p>
 					<p>
-					相手の強さを選んでください<br />
-					<label><input type="radio" name="level">レベル1</label>
-					<label><input type="radio" name="level">レベル2</label>
-					<label><input type="radio" name="level">レベル3</label>
-					<label><input type="radio" name="level">レベル4</label>
-					<label><input type="radio" name="level">レベル5</label>
+						<input type="text" name="pname" size="50" placeholder="名前を入力してください" />
 					</p>
-					<p>先手か後手かを選んでください<br />
-					<label><input type="radio" name="order">先手</label>
-					<label><input type="radio" name="order">後手</label>
+
+					<p>
+						相手の強さを選んでください<br />
+						<label><input type="radio" name="level" />レベル1</label>
+						<label><input type="radio" name="level" />レベル2</label>
+						<label><input type="radio" name="level" />レベル3</label>
+						<label><input type="radio" name="level" />レベル4</label>
+						<label><input type="radio" name="level" />レベル5</label>
 					</p>
-					<input type="button" value="遊ぶ" onclick="start()">
+
+					<p>
+						先手か後手かを選んでください<br />
+						<label><input type="radio" name="order" />先手</label>
+						<label><input type="radio" name="order" />後手</label>
+					</p>
+
+					<input type="button" value="遊ぶ" onclick="start()" />
 				</form>
 			</div>
 		</main>
