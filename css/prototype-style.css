@@ -1,33 +1,23 @@
-<<<<<<< HEAD
-div#title
+@charaset "utf-8";
+
+#title
 {
 	margin:auto;
+	border:solid 1px black;
 }
 
-div#main
+#main
 {
 	display: none;
 }
 
-div#board
+#board
 {
 	width: 600px;
 	height: 600px;
 	background-color: forestgreen;
 	margin-left: auto;
 	margin-right: auto;
-}
-
-.center
-{
-	text-align: center;
-	margin-right: auto;
-	margin-left: auto;
-=======
-@charaset "utf-8";
-
-#title{
-	border:solid 1px black;
 }
 
 form{
@@ -41,5 +31,4 @@ form{
 	height:500px;
 	margin:auto;
 	border:solid 1px black;
->>>>>>> FETCH_HEAD
 }
