@@ -1,16 +1,25 @@
-#title
-{
-	width:80%;
-	border:solid 1px black;
-	background-color: #FFFFCC;
-}
-
-#title
+div#title
 {
 	margin:auto;
 }
 
-#form
+div#main
 {
-	margin:auto;
+	display: none;
+}
+
+div#board
+{
+	width: 600px;
+	height: 600px;
+	background-color: forestgreen;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.center
+{
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
 }
