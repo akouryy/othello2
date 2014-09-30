@@ -1,16 +1,18 @@
-#title
-{
-	width:80%;
+@charaset "utf-8";
+
+#title{
 	border:solid 1px black;
-	background-color: #FFFFCC;
 }
 
-#title
-{
+form{
+	width:480px;
+	height:200px;
 	margin:auto;
 }
 
-#form
-{
+.dialogbox{
+	width:800px;
+	height:500px;
 	margin:auto;
+	border:solid 1px black;
 }
