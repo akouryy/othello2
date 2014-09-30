@@ -1,6 +1,8 @@
 var pname;
 var level;
 var order;
+var levelchecked;
+var orderchecked;
 
 function start()
 {
@@ -26,6 +28,7 @@ function start()
 		{
 			levelcheck = 1;
 			level = i;
+			levelchecked = i;
 		}
 	}
 
@@ -46,6 +49,7 @@ function start()
 		{
 			ordercheck = 1;
 			order = i - 5;
+			orderchecked = i;
 		}
 	}
 
@@ -61,9 +65,20 @@ function start()
 	if (allcheck == 3)
 	{
 		document.getElementById("title").style.display="none";
+		document.getElementById("main").style.display="block";
 	}
 	else
 	{
 		alert(messege);
 	}
+}
+
+function backtitle()
+{
+	document.getElementById("title").style.display="block";
+	document.getElementById("main").style.display="none";
+
+	document.config.pname.value = "";
+	document.config.elements[levelchecked].checked = null;
+	document.config.elements[orderchecked].checked = null;
 }
