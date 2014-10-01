@@ -3,6 +3,59 @@ var level;
 var order;
 var levelchecked;
 var orderchecked;
+var othello;
+
+function load()
+{
+	othello = document.getElementById("board");
+
+	if (othello.getContext)
+	{
+		var border = othello.getContext("2d");
+
+		border.beginPath();
+
+		border.fillStyle = "forestgreen";
+		border.lineWidth = 10;
+		border.lineCap = "square";
+		border.strokeStyle = "#333333";
+
+		border.moveTo(5,5);
+		border.lineTo(5,565);
+		border.lineTo(565,565);
+		border.lineTo(565,5);
+		border.closePath();
+
+		border.stroke();
+		border.fill();
+
+		for (var i=1;i <= 7;i++)
+		{
+			border.beginPath();
+
+			border.lineWidth = 5;
+			border.strokeStyle = "#333333";
+
+			border.moveTo(5 + 70 * i,5);
+			border.lineTo(5 + 70 * i,565);
+
+			border.stroke();
+		}
+
+		for (var i=1;i <= 7;i++)
+		{
+			border.beginPath();
+
+			border.lineWidth = 5;
+			border.strokeStyle = "#333333";
+
+			border.moveTo(5,5 + 70 * i);
+			border.lineTo(565,5 + 70 * i);
+
+			border.stroke();
+		}
+	}
+}
 
 function start()
 {

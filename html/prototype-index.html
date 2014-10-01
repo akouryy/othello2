@@ -9,7 +9,7 @@
 		<script src="../js/prototype-othello.js"></script>
 	</head>
 
-	<body>
+	<body onload="load()">
 		<headder>
 			<h1>
 				testpage
@@ -43,9 +43,7 @@
 			</div>
 
 			<div id="main">
-				<div id="board" class="center">
-					<!--盤面を表示-->
-				</div>
+				<canvas id="board" class="center" width="570" height="570"></canvas>
 
 				<div class="center">
 					<button onclick="backtitle()">タイトル画面に戻る</button>
