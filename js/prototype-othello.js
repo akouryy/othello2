@@ -4,6 +4,16 @@ var order;
 var levelchecked;
 var orderchecked;
 var othello;
+var blackpiece = new Image();
+var whitepiece = new Image();
+var gameboard = [[0,0,0,0,0,0,0,0],
+                 [0,0,0,0,0,0,0,0],
+                 [0,0,0,0,0,0,0,0],
+                 [0,0,0,2,1,0,0,0],
+                 [0,0,0,1,2,0,0,0],
+                 [0,0,0,0,0,0,0,0],
+                 [0,0,0,0,0,0,0,0],
+                 [0,0,0,0,0,0,0,0]];
 
 function load()
 {
@@ -11,49 +21,54 @@ function load()
 
 	if (othello.getContext)
 	{
-		var border = othello.getContext("2d");
+		var context = othello.getContext("2d");
 
-		border.beginPath();
+		black(context);
+		white(context);
 
-		border.fillStyle = "forestgreen";
-		border.lineWidth = 10;
-		border.lineCap = "square";
-		border.strokeStyle = "#333333";
+		context.beginPath();
 
-		border.moveTo(5,5);
-		border.lineTo(5,565);
-		border.lineTo(565,565);
-		border.lineTo(565,5);
-		border.closePath();
+		context.fillStyle = "forestgreen";
+		context.lineWidth = 10;
+		context.lineCap = "square";
+		context.strokeStyle = "#333333";
 
-		border.stroke();
-		border.fill();
+		context.moveTo(5,5);
+		context.lineTo(5,600);
+		context.lineTo(600,600);
+		context.lineTo(600,5);
+		context.closePath();
+
+		context.stroke();
+		context.fill();
 
 		for (var i=1;i <= 7;i++)
 		{
-			border.beginPath();
+			context.beginPath();
 
-			border.lineWidth = 5;
-			border.strokeStyle = "#333333";
+			context.lineWidth = 5;
+			context.strokeStyle = "#333333";
 
-			border.moveTo(5 + 70 * i,5);
-			border.lineTo(5 + 70 * i,565);
+			context.moveTo(75 * i + 5,5);
+			context.lineTo(75 * i + 5,600);
 
-			border.stroke();
+			context.stroke();
 		}
 
 		for (var i=1;i <= 7;i++)
 		{
-			border.beginPath();
+			context.beginPath();
 
-			border.lineWidth = 5;
-			border.strokeStyle = "#333333";
+			context.lineWidth = 5;
+			context.strokeStyle = "#333333";
 
-			border.moveTo(5,5 + 70 * i);
-			border.lineTo(565,5 + 70 * i);
+			context.moveTo(5,75 * i + 5);
+			context.lineTo(600,75 * i + 5);
 
-			border.stroke();
+			context.stroke();
 		}
+
+		output(context);
 	}
 }
 
@@ -134,4 +149,42 @@ function backtitle()
 	document.config.pname.value = "";
 	document.config.elements[levelchecked].checked = null;
 	document.config.elements[orderchecked].checked = null;
+}
+
+function black(context)
+{
+	context.beginPath();
+	context.fillStyle = "#000000";
+	context.arc(30,30,30,0,Math.PI*2,true);
+	context.fill();
+
+	blackpiece.src = othello.toDataURL();
+}
+
+function white(context)
+{
+	context.beginPath();
+	context.fillStyle = "#FFFFFF";
+	context.arc(30,30,30,0,Math.PI*2,true);
+	context.fill();
+
+	whitepiece.src = othello.toDataURL();
+}
+
+function output(context)
+{
+	for (var i=0;i < 8;i++)
+	{
+		for (var j=0;j < 8;j++)
+		{
+			if (gameboard[i][j] == 1)
+			{
+				context.drawImage(blackpiece,75 * j + 12.5,75 * i + 12.5);
+			}
+			else if (gameboard[i][j] == 2)
+			{
+				context.drawImage(whitepiece,75 * j + 12.5,75 * i + 12.5);
+			}
+		}
+	}
 }
