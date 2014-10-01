@@ -1,5 +1,12 @@
 @charaset "utf-8";
 
+body
+{
+	width:800px;
+	margin:auto;
+	text-align:center;
+}
+
 #title
 {
 	margin:auto;
@@ -9,6 +16,7 @@
 #main
 {
 	display: none;
+	border:solid 1px black;
 }
 
 #board
@@ -16,8 +24,8 @@
 	width: 600px;
 	height: 600px;
 	background-color: forestgreen;
-	margin-left: auto;
-	margin-right: auto;
+	margin:auto;
+	margin-top:10px;
 }
 
 form{
@@ -26,16 +34,13 @@ form{
 	margin:auto;
 }
 
-.dialogbox{
-	width:800px;
-	height:500px;
-	margin:auto;
-	border:solid 1px black;
+button,input[type="button"] {
+	background-color: white;
+	border:solid black 3px;
+	border-radius:10px;
 }
 
-.center
-{
-	text-align: center;
-	margin-right: auto;
-	margin-left: auto;
+button:hover,input[type="button"]:hover{
+	color:white;
+	background-color:black;
 }
