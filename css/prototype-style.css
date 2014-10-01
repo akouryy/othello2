@@ -44,3 +44,8 @@ button:hover,input[type="button"]:hover{
 	color:white;
 	background-color:black;
 }
+
+input[name="pname"]
+{
+	width:250px;
+}
