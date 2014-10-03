@@ -144,6 +144,15 @@ function start()
 	{
 		alert(messege);
 	}
+
+	gameboard = [[0 , 0 , 0 , 0 , 0 , 0 , 0 , 0],
+                 [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0],
+                 [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0],
+                 [0 , 0 , 0 , 2 , 1 , 0 , 0 , 0],
+                 [0 , 0 , 0 , 1 , 2 , 0 , 0 , 0],
+                 [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0],
+                 [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0],
+                 [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0]];
 }
 
 function backtitle()
@@ -257,5 +266,5 @@ function gameset()
 		document.getElementById("result").textContent = (pscore + "対" + ascore + "で引き分けです。");
 	}
 
-	document.getElementById("result").display = "block";
+	document.getElementById("result").style.display = "block";
 }
