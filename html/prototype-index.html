@@ -20,22 +20,36 @@
 			<div id="title">
 				<form name="config" id="form">
 					<p>
-						<label>名前 : <input type="text" name="pname" placeholder="名前を入力してください" /> さん</label>
+						名前<br />
+
+						<label><div id="pname"><input type="text" name="pname" placeholder="名前を入力してください" /> さん</label></div>
+
+						<div id="alertpname"></div>
 					</p>
 
 					<p>
-						相手の強さを選んでください<br />
-						<label><input type="radio" name="level" />レベル1</label>
-						<label><input type="radio" name="level" />レベル2</label>
-						<label><input type="radio" name="level" />レベル3</label>
-						<label><input type="radio" name="level" />レベル4</label>
-						<label><input type="radio" name="level" />レベル5</label>
+						<br />相手の強さを選んでください<br />
+
+						<div id="level">
+							<label><input type="radio" name="level" />レベル1</label>
+							<label><input type="radio" name="level" />レベル2</label>
+							<label><input type="radio" name="level" />レベル3</label>
+							<label><input type="radio" name="level" />レベル4</label>
+							<label><input type="radio" name="level" />レベル5</label>
+						</div>
+
+						<div id="alertlevel"></div>
 					</p>
 
 					<p>
-						先手か後手かを選んでください<br />
-						<label><input type="radio" name="order" />先手</label>
-						<label><input type="radio" name="order" />後手</label>
+						<br />先手か後手かを選んでください<br />
+
+						<div id="porder">
+							<label><input type="radio" name="porder" />先手</label>
+							<label><input type="radio" name="porder" />後手</label>
+						</div>
+
+						<div id="alertporder"></div>
 					</p>
 
 					<input type="button" value="遊ぶ" onclick="start()" />
@@ -45,7 +59,7 @@
 			<div id="main">
 				<canvas id="board" width="605" height="605" onclick=""></canvas>
 
-				<div id="result" style="display: none" onclick="gameset()"></div>
+				<div id="result" onclick="gameset()"></div>
 
 				<div>
 					<button onclick="backtitle()">タイトル画面に戻る</button>

@@ -86,7 +86,10 @@ function start()
 
 	if (pname === "")
 	{
-		messege += "名前を入力してください。\n";
+//		messege += "\n";
+		document.getElementById("pname").style.border = "solid 1px #FF0000";
+		document.getElementById("alertpname").textContent = "名前を入力してください。";
+		document.getElementById("alertpname").style.display = "block";
 	}
 	else
 	{
@@ -111,7 +114,10 @@ function start()
 	}
 	else
 	{
-		messege += "レベルを選んでください。\n";
+//		messege += "\n";
+		document.getElementById("level").style.border = "solid 1px #FF0000";
+		document.getElementById("alertlevel").textContent = "レベルを選んでください。";
+		document.getElementById("alertlevel").style.display = "block";
 	}
 
 	var pordercheck = 0;
@@ -132,7 +138,9 @@ function start()
 	}
 	else
 	{
-		messege += "先手か後手か選んでください。\n";
+		document.getElementById("porder").style.border = "solid 1px #FF0000";
+		document.getElementById("alertporder").textContent = "先手か後手か選んでください。";
+		document.getElementById("alertporder").style.display = "block";
 	}
 
 	if (allcheck == 3)
@@ -140,25 +148,17 @@ function start()
 		document.getElementById("title").style.display = "none";
 		document.getElementById("main").style.display = "block";
 	}
-	else
-	{
-		alert(messege);
-	}
 
-	gameboard = [[0 , 0 , 0 , 0 , 0 , 0 , 0 , 0],
-                 [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0],
-                 [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0],
-                 [0 , 0 , 0 , 2 , 1 , 0 , 0 , 0],
-                 [0 , 0 , 0 , 1 , 2 , 0 , 0 , 0],
-                 [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0],
-                 [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0],
-                 [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0]];
+	document.getElementById("result").style.display = "none";
 }
 
 function backtitle()
 {
 	document.getElementById("title").style.display = "block";
 	document.getElementById("main").style.display = "none";
+	document.getElementById("alertpname").style.display = "none";
+	document.getElementById("alertlevel").style.display = "none";
+	document.getElementById("alertporder").style.display = "none";
 
 	document.config.pname.value = "";
 	document.config.elements[levelchecked].checked = null;

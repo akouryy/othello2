@@ -28,7 +28,6 @@ body
 form
 {
 	width: 480px;
-	height: 200px;
 	margin: auto;
 }
 
@@ -48,4 +47,10 @@ button:hover,input[type="button"]:hover
 input[name="pname"]
 {
 	width: 250px;
+}
+
+#result , #alertpname , #alertlevel , #alertporder
+{
+	display: none;
+	color: #FF0000;
 }
