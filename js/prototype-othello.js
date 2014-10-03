@@ -132,7 +132,7 @@ function start()
 	}
 	else
 	{
-		messege += "先手か後手か選んでください。\n"
+		messege += "先手か後手か選んでください。\n";
 	}
 
 	if (allcheck == 3)
