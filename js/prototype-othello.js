@@ -84,7 +84,7 @@ function start()
 
 	pname = document.config.pname.value;
 
-	if (pname == "")
+	if (pname === "")
 	{
 		messege += "名前を入力してください。\n";
 	}
