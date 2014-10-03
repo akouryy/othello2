@@ -86,7 +86,6 @@ function start()
 
 	if (pname === "")
 	{
-//		messege += "\n";
 		document.getElementById("pname").style.border = "solid 1px #FF0000";
 		document.getElementById("alertpname").textContent = "名前を入力してください。";
 		document.getElementById("alertpname").style.display = "block";
@@ -94,6 +93,8 @@ function start()
 	else
 	{
 		allcheck += 1;
+		document.getElementById("pname").style.border = "hidden 1px #FF0000";
+		document.getElementById("alertpname").style.display = "none";
 	}
 
 	var levelcheck = 0;
@@ -111,10 +112,11 @@ function start()
 	if (levelcheck == 1)
 	{
 		allcheck += 1;
+		document.getElementById("level").style.border = "hidden 1px #FF0000";
+		document.getElementById("alertlevel").style.display = "none";
 	}
 	else
 	{
-//		messege += "\n";
 		document.getElementById("level").style.border = "solid 1px #FF0000";
 		document.getElementById("alertlevel").textContent = "レベルを選んでください。";
 		document.getElementById("alertlevel").style.display = "block";
@@ -135,6 +137,8 @@ function start()
 	if (pordercheck == 1)
 	{
 		allcheck += 1;
+		document.getElementById("porder").style.border = "hidden 1px #FF0000";
+		document.getElementById("alertporder").style.display = "none";
 	}
 	else
 	{
@@ -159,6 +163,9 @@ function backtitle()
 	document.getElementById("alertpname").style.display = "none";
 	document.getElementById("alertlevel").style.display = "none";
 	document.getElementById("alertporder").style.display = "none";
+	document.getElementById("pname").style.border = "hidden 1px #FF0000";
+	document.getElementById("level").style.border = "hidden 1px #FF0000";
+	document.getElementById("porder").style.border = "hidden 1px #FF0000";
 
 	document.config.pname.value = "";
 	document.config.elements[levelchecked].checked = null;
