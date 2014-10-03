@@ -5,11 +5,11 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta http-equiv="content-script-type" content="text/javascript" />
 		<meta http-equiv="content-style-type" content="text/css" />
-		<link rel="stylesheet" type="text/css" href="../css/prototype-style.css" />
-		<script src="../js/prototype-othello.js"></script>
+		<link rel="stylesheet" type="text/css" href="./hoge1.css" />
+		<script src="./hoge1.js"></script>
 	</head>
 
-	<body onload="load()">
+	<body onload="boardload()">
 		<headder>
 			<h1>
 				testpage
@@ -17,7 +17,7 @@
 		</headder>
 
 		<main>
-			<div id="title" class="center">
+			<div id="title">
 				<form name="config" id="form">
 					<p>
 						<label>名前 : <input type="text" name="pname" placeholder="名前を入力してください" /> さん</label>
@@ -43,9 +43,11 @@
 			</div>
 
 			<div id="main">
-				<canvas id="board" class="center" width="605" height="605"></canvas>
+				<canvas id="board" width="605" height="605" onclick=""></canvas>
 
-				<div class="center">
+				<div id="result" style="display: none" onclick="gameset()"></div>
+
+				<div>
 					<button onclick="backtitle()">タイトル画面に戻る</button>
 				</div>
 			</div>
