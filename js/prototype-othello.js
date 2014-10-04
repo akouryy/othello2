@@ -74,7 +74,7 @@ function boardload()
 		context.stroke();
 	}
 
-	output(context);
+	output();
 }
 
 function start()
