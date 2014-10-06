@@ -59,48 +59,6 @@ function boardload()
 	black(context);
 	white(context);
 
-	context.beginPath();
-
-	context.fillStyle = "forestgreen";
-	context.lineWidth = 10;
-	context.lineCap = "square";
-	context.strokeStyle = "#333333";
-
-	context.moveTo(5 , 5);
-	context.lineTo(5 , 600);
-	context.lineTo(600 , 600);
-	context.lineTo(600 , 5);
-	context.closePath();
-
-	context.stroke();
-	context.fill();
-
-	for (var i = 1;i <= 7;i++)
-	{
-		context.beginPath();
-
-		context.lineWidth = 5;
-		context.strokeStyle = "#333333";
-
-		context.moveTo(75 * i + 5 , 5);
-		context.lineTo(75 * i + 5 , 600);
-
-		context.stroke();
-	}
-
-	for (var i = 1;i <= 7;i++)
-	{
-		context.beginPath();
-
-		context.lineWidth = 5;
-		context.strokeStyle = "#333333";
-
-		context.moveTo(5 , 75 * i + 5);
-		context.lineTo(600 , 75 * i + 5);
-
-		context.stroke();
-	}
-
 	output();
 }
 
@@ -182,6 +140,17 @@ function start()
 
 	document.getElementById("result").style.display = "none";
 	document.getElementById("message").style.visibility = "hidden";
+
+	gameboard = [[0 , 0 , 0 , 0 , 0 , 0 , 0 , 0],
+				 [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0],
+				 [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0],
+				 [0 , 0 , 0 , 2 , 1 , 0 , 0 , 0],
+				 [0 , 0 , 0 , 1 , 2 , 0 , 0 , 0],
+				 [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0],
+				 [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0],
+				 [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0]];
+
+	output();
 }
 
 function backtitle()
@@ -293,6 +262,48 @@ function flip(h , w , order , data)
 
 function output()
 {
+	context.beginPath();
+
+	context.fillStyle = "forestgreen";
+	context.lineWidth = 10;
+	context.lineCap = "square";
+	context.strokeStyle = "#333333";
+
+	context.moveTo(5 , 5);
+	context.lineTo(5 , 600);
+	context.lineTo(600 , 600);
+	context.lineTo(600 , 5);
+	context.closePath();
+
+	context.stroke();
+	context.fill();
+
+	for (var i = 1;i <= 7;i++)
+	{
+		context.beginPath();
+
+		context.lineWidth = 5;
+		context.strokeStyle = "#333333";
+
+		context.moveTo(75 * i + 5 , 5);
+		context.lineTo(75 * i + 5 , 600);
+
+		context.stroke();
+	}
+
+	for (var i = 1;i <= 7;i++)
+	{
+		context.beginPath();
+
+		context.lineWidth = 5;
+		context.strokeStyle = "#333333";
+
+		context.moveTo(5 , 75 * i + 5);
+		context.lineTo(600 , 75 * i + 5);
+
+		context.stroke();
+	}
+
 	for (var i = 0;i < 8;i++)
 	{
 		for (var j = 0;j < 8;j++)
