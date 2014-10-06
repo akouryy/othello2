@@ -12,19 +12,46 @@ var blackpiece = new Image();
 var whitepiece = new Image();
 
 var gameboard = [[0 , 0 , 0 , 0 , 0 , 0 , 0 , 0],
-                 [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0],
-                 [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0],
-                 [0 , 0 , 0 , 2 , 1 , 0 , 0 , 0],
-                 [0 , 0 , 0 , 1 , 2 , 0 , 0 , 0],
-                 [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0],
-                 [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0],
-                 [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0]];//empty:0 brack:1 white:2
+				 [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0],
+				 [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0],
+				 [0 , 0 , 0 , 2 , 1 , 0 , 0 , 0],
+				 [0 , 0 , 0 , 1 , 2 , 0 , 0 , 0],
+				 [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0],
+				 [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0],
+				 [0 , 0 , 0 , 0 , 0 , 0 , 0 , 0]];//empty:0 brack:1 white:2
 
-var mouse = {x : null , y : null};
+var mousex;
+var mousey;
 var noworder;//AI:1 player:2
+
+function Backdata()
+{
+	this.x = new Array(0 , 0 , 0 , 0 , 0 , 0 , 0 , 0);
+	this.y = new Array(0 , 0 , 0 , 0 , 0 , 0 , 0 , 0);
+	this.flip_number = new Array(0 , 0 , 0 , 0 , 0 , 0 , 0 , 0);
+}
+
+function Btree()
+{
+	this.children = new Btree();
+	this.value = 0;
+	this.num = 0;
+	this.posy = 0;
+	this.posx = 0;
+}
 
 function boardload()
 {
+	window.document.onkeydown = function ()
+	{
+		if(window.event.keyCode == 13)
+		{
+			return false;
+		}
+
+		return true;
+	}
+
 	othello = document.getElementById("board");
 
 	context = othello.getContext("2d");
@@ -154,6 +181,7 @@ function start()
 	}
 
 	document.getElementById("result").style.display = "none";
+	document.getElementById("message").style.visibility = "hidden";
 }
 
 function backtitle()
@@ -172,11 +200,32 @@ function backtitle()
 	document.config.elements[porderchecked].checked = null;
 }
 
+function coordinate(event)
+{
+	if (!event)
+	{
+		event = window.event;
+	}
+
+	if (document.all)
+	{
+		mousex = event.offsetX;
+		mousey = event.offsetY;
+	}
+	else
+	{
+		mousex = event.layerX;
+		mousey = event.layerY;
+	}
+
+	return [mousex , mousey];
+}
+
 function black()
 {
 	context.beginPath();
 	context.fillStyle = "#000000";
-	context.arc(30 , 30 , 30 , 0 , Math.PI * 2 , true);
+	context.arc(37.5 , 37.5 , 30 , 0 , Math.PI * 2 , true);
 	context.fill();
 
 	blackpiece.src = othello.toDataURL();
@@ -186,10 +235,60 @@ function white()
 {
 	context.beginPath();
 	context.fillStyle = "#FFFFFF";
-	context.arc(30 , 30 , 30 , 0 , Math.PI * 2 , true);
+	context.arc(37.5 , 37.5 , 30 , 0 , Math.PI * 2 , true);
 	context.fill();
 
 	whitepiece.src = othello.toDataURL();
+}
+
+function main(event)
+{
+	coordinate(event);
+	myturn();
+	output();
+}
+
+function myturn()
+{
+	var w;
+	var h;
+	var ret;
+	var dummy = new Backdata();
+
+	h = Math.floor((mousey + 70) / 75);
+	w = Math.floor((mousex + 70) / 75);
+
+	h--;
+	w--;
+
+	if (gameboard[h][w] == 0)
+	{
+		ret = flip(h , w , porder , dummy);
+
+		if (ret == 1)
+		{
+			gameboard[h][w] = porder;
+			document.getElementById("message").style.visibility = "hidden";
+		}
+		else
+		{
+			document.getElementById("message").style.visibility = "visible";
+		}
+	}
+	else
+	{
+		document.getElementById("message").style.visibility = "visible";
+	}
+}
+
+function enemyturn()
+{
+
+}
+
+function flip(h , w , order , data)
+{
+	return 1;
 }
 
 function output()
@@ -200,44 +299,19 @@ function output()
 		{
 			if (gameboard[i][j] == 1)
 			{
-				context.drawImage(blackpiece , 75 * j + 12.5 , 75 * i + 12.5);
+				context.drawImage(blackpiece , 75 * j + 5 , 75 * i + 5);
 			}
 			else if (gameboard[i][j] == 2)
 			{
-				context.drawImage(whitepiece , 75 * j + 12.5 , 75 * i + 12.5);
+				context.drawImage(whitepiece , 75 * j + 5 , 75 * i + 5);
 			}
 		}
 	}
 }
 
-function ordercount(order)
+function checkstate()
 {
-	var count;
 
-	for (var i = 0;i < 8;i++)
-	{
-		for (var j = 0;j < 8;j++)
-		{
-			if (gameboard[i][j] == order)
-			{
-				count++;
-			}
-		}
-	}
-
-	return count;
-}
-
-function chenge(order)
-{
-	if (order == 1)
-	{
-		return 2;
-	}
-	else if (order == 2)
-	{
-		return 1;
-	}
 }
 
 function gameset()
@@ -274,4 +348,49 @@ function gameset()
 	}
 
 	document.getElementById("result").style.display = "block";
+}
+
+function chenge(order)
+{
+	if (order == 1)
+	{
+		return 2;
+	}
+	else if (order == 2)
+	{
+		return 1;
+	}
+}
+
+function append_child()
+{
+
+}
+
+function search_tree()
+{
+
+}
+
+function minimax()
+{
+
+}
+
+function ordercount(order)
+{
+	var count;
+
+	for (var i = 0;i < 8;i++)
+	{
+		for (var j = 0;j < 8;j++)
+		{
+			if (gameboard[i][j] == order)
+			{
+				count++;
+			}
+		}
+	}
+
+	return count;
 }
